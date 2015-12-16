@@ -1,3 +1,6 @@
+body{
+	font-family: "Helvetica Neue","Microsoft Jhenghei",Helvetica,Arial,Geneva,sans-serif;
+}
 .previewContainer{
 	/*position: relative;*/
 	/*vertical-align: top;*/
@@ -13,6 +16,24 @@
 	display: block;
 	width: 100%;
 }
-.jcrop-holder{
-	margin: auto;
+.jcrop-holder {
+	max-width: 100%;
+}
+.jcrop-tracker{
+	max-width: 100%;
+}
+.inner{
+	background: #E0E0E0;
+	border : 10px solid transparent;
+}
+.list-group a{
+	display: block;
+	color:#636567;
+}
+[class*="col-"]{
+	padding-bottom: 15px;
+}
+.under-line{
+	padding-bottom: 10px;
+	border-bottom: 1px solid black;
 }

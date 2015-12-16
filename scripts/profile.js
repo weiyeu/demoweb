@@ -42,9 +42,24 @@ $(function(){
 			// 'height' : Math.round(scaleY * jcropHolder.height()) + 'px',
 			'margin-left' : '-' + Math.round(scaleX * selection.x) + 'px',
 			'margin-top' : '-' + Math.round(scaleY * selection.y) + 'px',
-			});
+		});
 		});
 	}
+
+	/** upload image for preview**/
+	$('#uploadImg').change(function(){
+		var fileHandle = this.files[0];
+		var reader = new FileReader();
+		reader.onload = function(e){
+			// set previewImg to uploaded img
+			previewImg.each(function(){
+				$(this).attr('src',e.target.result);
+			});
+			// refresh Jcrop
+			profileImg.data('Jcrop').setImage(e.target.result);
+		};
+		reader.readAsDataURL(fileHandle);
+	});
 
 	// event handler
 	// $("button[data-toggle='modal']").click(function(){

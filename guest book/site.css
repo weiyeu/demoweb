@@ -1,0 +1,43 @@
+body {
+	font-family: "微軟正黑體";
+	font-size: 16px;
+	background-color: #CCC;
+	color: #666666;
+	padding: 3px;
+}
+
+#main {
+    padding: 5px;
+    padding-left:  15px;
+    padding-right: 15px;
+    background-color: #ffffff;
+    border-radius: 0 0 5px 5px;
+}
+h1{
+	text-align:center;
+	font-size:48px;
+}
+div.message {
+	background-color:white;
+	color:gray;
+	margin:20px;
+	padding:10px;
+}
+
+div.message_par {
+	background-color:gray;
+	color:white;
+	margin:20px;
+	padding:10px;
+}
+
+textarea{
+	font-family: "微軟正黑體";
+	font-size: 16px;
+	background-color: #CCC;
+	resize: none;
+	height: 100px;
+	width: 100%;
+	box-sizing: border-box;
+	color: black;
+}

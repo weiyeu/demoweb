@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Dropdowns</h2>
+  <p>The .divider class is used to separate links inside the dropdown menu:</p>
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Tutorials
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li>
+		<a href="#">HTML</a>
+			<ul class="dropdown-menu">
+				<li><a href="#">a</a></li>
+				<li><a href="#">b</a></li>
+				<li><a href="#">c</a></li>
+			</ul>
+	  </li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+      <li><a href="#">About Us</a></li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+<style>
+ul li ul.dropdown-menu{
+	position:absolute;
+	top:0;
+	left:100%;
+	margin-top:0;
+	display:none;
+}
+
+ul li:hover ul{
+	display:block;
+}
+
+</style>
+
+<script>
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
+(function($){
+	$(".progress-bar-success").click(function(){
+		var i = 0;
+
+		/*
+		alert("start while loop");
+		while(i < 10){
+			$(this).attr("style","width:"+i+"%");
+			//sleep(500);
+			i++;
+		}
+		alert("finish while loop");
+		*/
+
+		if(typeof(set) !== "undefined"){
+			clearInterval(set);
+			delete set;
+		}else{
+			var _this = $(this);
+			set = setInterval(function(){
+					var width = parseFloat(_this.attr("width"))+0.5;
+					_this.attr("width",width);
+					_this.attr("style","width:"+width+"%");	
+					if(width > 20){
+						_this.text("20%!!");
+					}
+				}
+			,50)
+		}
+	});
+	
+})(jQuery);
+</script>

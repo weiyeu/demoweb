@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<body>
+<div class="top">TOP</div>
+<div class="hello" id="hello1">Hello1</div>
+<div class="hello" id="hello2">Hello2</div>
+<div class="hello" id="hello3">Hello3</div>
+<div class="hello" id="hello4">Hello4</div>
+<div class="hello" id="hello5">Hello5</div>
+</body>
+
+</html>
+
+<style>
+.top{
+	width:100%;
+	font-size:50px;
+	font-weight:bold;
+	position:fixed;
+	top:0;
+	text-align:center;
+}
+.hello{
+	height:500px;
+	color:white;
+	font-size:30px;
+	margin: 0;
+}
+#hello1{
+	background:grey;
+}
+#hello2{
+	background:red;
+}
+#hello3{
+	background:yellow;
+}
+#hello4{
+	background:green;
+}
+#hello5{
+	background:blue;
+}
+</style>
+
+<script>
+// initialization
+$(function(){
+	div = {
+			hello1 : {name:"hello1"},
+			hello2 : {name:"hello2"},
+			hello3 : {name:"hello3"},
+			hello4 : {name:"hello4"},
+		}
+		
+	for(var key in div){
+			div[key].y = $("#"+key).offset().top;
+	}
+	$(document).on("scroll",getY2);
+});
+
+
+function getY2(){
+	var yD = $(document).scrollTop();
+	for(var key in div){
+		if(yD >= div[key].y){
+			$(".top").text(key);
+		}
+	}
+	//$(".top").text(y2+" "+yD);
+}
+</script>

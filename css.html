@@ -1,0 +1,127 @@
+<style>
+	td {
+		text-align:center;
+	}
+	.caret {
+		display: inline-block;
+		width: 0;
+		height: 0;
+		margin-left: 2px;
+		vertical-align: middle;
+		border-top: 4px dashed;
+		border-right: 4px solid rgb(57, 241, 15);
+		border-left: 4px solid rgb(249, 12, 12);
+		border-bottom: 4px solid rgb(195, 15, 243);
+	}
+	.aaa:after{
+		display:block;
+		content:"b_aaa";
+
+	}
+	img{
+	}
+	.img_div{
+		position:absolute;
+		width:300px;
+		height:150px;
+		overflow:hidden;
+	}	
+	.img_div_outer{
+		display:inline-block;
+		width:600px;
+		height:600px;
+		overflow:hidden;
+	}
+	.preview{
+		display:none;
+		width:1000%;
+		margin-left:0px;
+	}
+</style>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/imgareaselect-default.css" />
+	<script type="text/javascript" src="scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/imgareaselect.js"></script>
+</head>
+<div class="aaa">aaa</div>
+<table style="width:100%">
+	<tr>
+		<td>a</td>
+		<td>a</td>
+		<td>a</td>
+	</tr>
+	<span class="caret">aaa</span>
+	<p class="caret">ppp</p>
+</table>
+<img id="img" src="flower.jpg"></img>
+<div class="img_div_outer">
+	<img id="preview" class="preview" src="flower.jpg"></img>
+</div>
+<p class="mouseCoordiante"></p>
+<div class="container well">
+	<h1>jQuery Click Event</h1>
+	<p>&nbsp;</p>
+	<button class="btn btn-primary add">Click me to add new item</button>
+	<ul style="margin-top:5px;margin-bottom:5px;" class="li">
+		<li style="margin-top:5px; font-size:1.2em">I am old item.&nbsp;&nbsp;<button class="btn btn-danger delete">Delete</button></li>
+		<li style="margin-top:5px; font-size:1.2em">I am old item.&nbsp;&nbsp;<button class="btn btn-danger delete">Delete</button></li>
+		<li style="margin-top:5px; font-size:1.2em">I am old item.&nbsp;&nbsp;<button class="btn btn-danger delete">Delete</button></li>
+		<li style="margin-top:5px; font-size:1.2em">I am old item.&nbsp;&nbsp;<button class="btn btn-danger delete">Delete</button></li>
+	</ul>
+</div>
+<script>
+	(function ($) {
+		$(function(){
+			$('img#img').imgAreaSelect({
+				handles: true,
+				onSelectEnd: function(){},
+			});
+		})
+		$(".add").click(function(){
+			$(".li").append('<li style="margin-top:5px; font-size:1.2em">I am new item.&nbsp;&nbsp;<button class="btn btn-danger delete">Delete</button></li>');
+		});
+		$(document).on('aaa.bbb.ccc', '.delete', function(a){
+			console.log(a);
+			$(this).parent().remove();
+		});
+		$(document).on('click','.delete',function(a){
+			$(this).trigger("aaa.bbb");	
+		});
+		var stop = false;
+		$("#img")
+		.mousemove(function(e){
+			var offset = $(this).offset();
+			var offsetTop = offset.top;
+			var offsetLeft = offset.left;
+			var moveX = e.pageX - offsetLeft;
+			var moveY = e.pageY - offsetTop;
+			moveX *= 10;
+			moveY *= 10;
+			if(!stop){
+				$(".mouseCoordiante").text('moveX is : '+moveX+'; moveY is : '+moveY);
+				$("#preview").css({
+					'display': 'block',
+					'margin-left':-moveX-300,
+					'margin-top':-moveY-300,
+				});
+			}
+		}).mouseleave(function(e){
+			$("#preview").css({
+		//	'display' : 'none',
+	});
+		})
+		.mousedown(function(e){
+			stop = ~stop;
+		});
+	})(jQuery);
+</script>
+<script>
+	var a = 3;
+	var b = 2;
+	if(b = 5, b == 5, a == 3){
+		//alert(b);
+	}
+</script>
+
+

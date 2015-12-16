@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>我的留言板</title>
+		<link href="site.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="script.js"></script>
+	</head>
+
+	<body>
+		<div id="main">
+			<h1>我的留言板</h1>
+		</div>
+		<div class="message">
+			<h2>Bill : </h2>
+			<div class="message_par">
+				<p>Hello world!<br>Nice to meet you!</p>
+			</div>
+		</div>
+		<div class="message">
+			<h2>Mary : </h2>
+			<div class="message_par">
+				<p>Hello!<br>Nice to meet you too!</p>
+			</div>
+		</div>
+		<div class="message">
+			<h2>You : </h2>
+			<div id="form" style="margin:20px"> <!-- action="submit_message.php" method="post"> -->
+				<span>user name : </span><input id="user" type="text" name="user" style="margin-bottom:10px"></input>
+				<textarea id="textarea" name="message_area" cols="30" rows="5" placeholder="enter your message here"></textarea>
+				<button id="submit">submit</button>
+			</div>
+		</div>
+	</body>
+</html>

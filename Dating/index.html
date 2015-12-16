@@ -1,0 +1,41 @@
+<?php
+	session_start();
+?>
+<!DOCTYPE html>
+<html>
+	<title>晚餐</title>
+	<head>
+		<title>今晚一起約會吧</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="site.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.leanModal.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+
+	</head>
+	<body>
+		<div class="navbar">
+			<ul class="navbar_list_right">
+				<li><a id="modal_trigger" href="#modal">登入</a></li>
+				<li><a href="">申請帳號</a></li>
+			</ul>
+		</div>
+		<!-- popup login dialog -->
+		<div id="modal" class="popup_container">
+			<header class="popup_header">
+				<span>Header</span>
+				<span class="modal_cancel">&times;</span>
+			</header>
+			<section class="popup_body">
+				<a class="login_fb" href="#">
+					<span class="icon"><i class="fa fa-facebook"></i></span>
+					<span class="icon_title"><b>使用FACEBOOK登入</b></span>
+				</a>
+				<p style="color:red">Hello 今天過得好嗎?</p>
+			</section>
+		</div>
+		<h1>今晚0人有空</h1>
+	</body>
+	
+</html>

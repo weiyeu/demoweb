@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<p class="test"></p>
+	<div class="container">
+		<h1></h1>
+		<h2>Image</h2>
+		<p>The .img-responsive class makes the image scale nicely to the parent element (resize the browser window to see the effect):</p>
+		<div class="imgContainer">
+			<img src="flower.jpg" alt="Chania" draggable="false">
+			<div class="selected l"></div>
+			<div class="selected u"></div>
+			<div class="selected r"></div>
+			<div class="selected d"></div>
+		</div>
+		<button class="plus">+</button>
+		<button class="minus">-</button>
+		<p class="coords"></p>
+
+	</div>
+
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		$('.plus').click(function() {
+			$('img').css({
+				width : '+=50',
+			})
+		});
+		$('.minus').click(function() {
+			$('img').css({
+				width : '-=50',
+			})
+		})
+
+		var dragStartX = 0;
+		var dragStartY = 0;
+		var dragTopStart = 0;
+		var dragLeftStart = 0;
+		var dragging = false;
+
+		$('.imgContainer').on('mousedown touchstart', function(e){
+			if(e.type == 'mousedown'){
+				dragStartX = e.pageX;
+				dragStartY = e.pageY;
+			}else{
+				dragStartX = e.originalEvent.changedTouches[0].pageX;
+				dragStartY = e.originalEvent.changedTouches[0].pageY;
+			}
+			e.preventDefault();
+			dragging = true;
+			dragTopStart = parseInt($('img').css('top'));
+			dragLeftStart = parseInt($('img').css('left'));
+			$('h1').text('touchstart'+dragStartX);
+		});
+		$(document)
+		.on('mouseup touchend', function(e){
+			$('h1').text('touchend');
+			dragging = false;
+		})
+		.on('mousemove touchmove', function(e){
+			if(dragging){
+				if(e.type == 'touchmove'){
+					e.pageX = e.originalEvent.changedTouches[0].pageX;
+					e.pageY = e.originalEvent.changedTouches[0].pageY;
+				}
+				$('h1').text('touchmove');
+				var moveX = e.pageX - dragStartX + dragLeftStart;
+				var moveY = e.pageY - dragStartY + dragTopStart;
+				var right = moveX + $('img').width();
+				var bottom = moveY + $('img').height();
+				if(moveX > 100) moveX = 100;
+				if(moveY > 100) moveY = 100;
+				if(right < 400) moveX = -100 - ($('img').width() - 500);
+				if(bottom < 400) moveY = -100 - ($('img').height() - 500);
+				$('img').css({
+					left : moveX,
+					top  : moveY,
+				});
+				$('p.coords').text(moveX+';'+moveY+';'+dragLeftStart+';'+right);
+			}
+		});
+		$('.test').text($(window).width());
+	});
+</script>
+<style type="text/css">
+	.imgContainer{
+		position: relative;
+		max-width: 100%;
+		width: 500px;
+		height: 500px;
+		overflow: hidden;
+		background: white;
+		/*opacity: 0.5;*/
+		border-color: red;
+		border-width: 10px;
+	}
+	img{
+		top:0;
+		left: 0;
+		position: absolute;
+		width: 500px;
+	}
+	.selected{
+		position: absolute;
+		/*z-index: 100px;*/
+		/*border: 10px solid black;*/
+		opacity: 0.7;
+		background: gray;
+	}
+	.l{
+		width: 100px;
+		height: 300px;
+		left: 0;
+		top: 100px;
+	}
+	.u{
+		width: 500px;
+		height: 100px;
+		top: 0;
+	}
+	.r{
+		width: 100px;
+		height: 300px;
+		right: 0;
+		top:100px;
+	}
+	.d{
+		width: 500px;
+		height: 100px;
+		bottom: 0;
+	}
+</style>

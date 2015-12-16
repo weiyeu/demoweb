@@ -1,0 +1,91 @@
+body {
+	font-family: Microsoft JhengHei;
+	font-size: 16px;
+	background-color: white;
+	color: #666666;
+	padding: 3px;
+}
+
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+
+a:hover{
+	background:#C1C1C1;
+}
+
+a:active{
+	background:
+}
+
+.popup_container{
+	height:auto;
+	border-style:solid;
+	border-color:black;
+	width:300px;
+}
+
+
+.popup_header{
+	background:gray;
+	padding:10px;
+	font-size:20px;
+	font-weight:bold;
+	text-transform:uppercase;
+	position:relative;
+}
+
+.popup_header .modal_cancel{
+/* 	position:absolute;
+	padding:10px;
+	top:0;
+	right:0; */
+	font-size:25px;
+	float:right;
+}
+
+.popup_body{
+	padding:10px;
+}
+.login_fb{
+	/* float:left; */
+	display:block;
+	padding:10px;
+	color:#505050;
+	background:rgba(186, 186, 186, 0.79);
+	border-radius: 15px;
+}
+
+.icon{
+	padding:5px 10px;
+	color:white;
+	background:#3B5998;
+}
+
+.icon_title{
+	margin:auto;
+}
+
+h1{
+	text-align:center;
+	font-size:48px;
+}
+ul.navbar_list_right{
+	text-align:right;
+}
+
+ul li{
+	margin:0px 10px;
+	display:inline;
+}
+
+a{
+	text-decoration:none;
+}

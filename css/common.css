@@ -31,6 +31,14 @@ footer {
 .text-bold{
 	font-weight: bold;
 }
+.text-large{
+	font-size: 28px;
+}
+@media screen and (max-width: 768px){
+	.text-large{
+		font-size: 20px;
+	}	
+}
 .text-super-large{
 	font-size: 63px;
 }
@@ -38,4 +46,20 @@ footer {
 	.text-super-large{
 		font-size: 36px;
 	}
+}
+/*link*/
+a.cancel-decoration{
+	/*color: black;*/
+}
+a.cancel-decoration:hover{
+	text-decoration: none;
+}
+a.cancel-decoration:visited{
+	text-decoration: none;
+}
+a.cancel-decoration:active{
+	text-decoration: none;
+}
+a.cancel-decoration:link{
+	text-decoration: none;
 }

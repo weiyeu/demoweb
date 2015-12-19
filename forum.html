@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forum</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- bootstrap css -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<!-- common css -->
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<!-- custom css -->
+	<link rel="stylesheet" type="text/css" href="css/forum.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- bootstrap javascript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<!-- custom javascript -->
+	<script type="text/javascript" src="scripts/forum.js"></script>
+</head>
+<body>
+	<!-- navigation bar -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#homeNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+				<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-heart"></span> 一起來晚餐吧!</a>
+			</div>
+			<div class="collapse navbar-collapse" id="homeNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> 首頁</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span> 關於</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span>申請帳號</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 登入</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- main container -->
+	<div class="container">
+		<!-- first row -->
+		<div class="row">
+			<!-- today hot -->
+			<div class="col-sm-4">
+				<a class="cancel-decoration" href="#">
+					<div class="panel panel-default">
+						<div class="panel-heading text-center">今日熱門</div>
+						<div class="panel-body text-center">
+							<span class="glyphicon glyphicon-star text-super-large"></span>
+							<p class="text-large" style="color:black"><br>看看今天最熱門的文章吧</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<!-- review after dinner -->
+			<div class="col-sm-4">
+				<a class="cancel-decoration" href="#">
+					<div class="panel panel-default">
+						<div class="panel-heading text-center">餐後心情</div>
+						<div class="panel-body text-center">
+							<span class="glyphicon glyphicon-heart text-super-large"></span>
+						</div>
+					</div>
+				</a>
+			</div>
+			<!-- food share -->
+			<div class="col-sm-4">
+				<a class="cancel-decoration" href="#">
+					<div class="panel panel-default">
+						<div class="panel-heading text-center">美食分享</div>
+						<div class="panel-body text-center">
+							<span class="glyphicon glyphicon-cutlery text-super-large"></span>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<!-- second row -->
+		<div class="row">
+			<!-- questions -->
+			<div class="col-sm-4">
+				<a class="cancel-decoration" href="#">
+					<div class="panel panel-default">
+						<div class="panel-heading text-center">我有疑問</div>
+						<div class="panel-body text-center">
+							<span class="glyphicon glyphicon-question-sign text-super-large"></span>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- footer -->
+	<footer class="container-fluid text-center">
+		<p>&copy 2015 Dating</p>
+	</footer>
+</body>
+</html>

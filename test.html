@@ -34,7 +34,9 @@
 	<textarea rows='5' id="textArea"></textarea>
 	<button id="btnTextArea">submit<br>aaa</button>
 	<button id="insetImg">insert img</button>
-	<div contenteditable="true" id="content"></div>
+	<div id="outer">
+		<div contenteditable="true" id="content"></div>
+	</div>
 
 </body>
 </html>
@@ -78,6 +80,9 @@
 	/* on document loaded */
 	$(function(){
 		$('#insetImg').click(function(){
+			$('#textArea').val($('#content').html());
+			alert($('#textArea').val());
+			alert($('#content').html());
 			var x=document.createElement('img');
 			x.width=100; 
 			x.src="flower.jpg"; 
@@ -153,6 +158,7 @@
 		height: 200px;
 		border: 10px solid red;
 		overflow: auto;
+		overflow-y:auto;
 	}
 	.imgContainer{
 		position: relative;

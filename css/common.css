@@ -47,6 +47,11 @@ footer {
 		font-size: 36px;
 	}
 }
+/*line*/
+.under-line{
+	padding-bottom: 10px;
+	border-bottom: 1px solid black;
+}
 /*link*/
 a.cancel-decoration{
 	/*color: black;*/

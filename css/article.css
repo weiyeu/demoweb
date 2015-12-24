@@ -18,3 +18,8 @@
 	font-weight:bold;
 	margin-bottom:10px
 }
+.comment .content .time{
+	font-size: 10px;
+	color: gray;
+	text-align: right;
+}

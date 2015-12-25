@@ -73,3 +73,7 @@ a.cancel-decoration:active{
 a.cancel-decoration:link{
 	text-decoration: none;
 }
+/*display*/
+.hidden{
+	display: none;
+}

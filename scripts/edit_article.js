@@ -56,11 +56,22 @@ $(function(){
 		var dragging = false;
 		var startX = 0;
 		var startY = 0;
+		var startWidth = 0;
 		insertedImg
 		// click to toggle resize function
 		.on('click',function(){
+			if(resizeable){
+				// clear resizeable border
+				$(this).css({
+					'border' : '',
+				});
+			}
+			else{
+				$(this).css({
+					'border' : '2px dashed lightgray',
+				});
+			}
 			resizeable = !resizeable;
-			alert(resizeable);
 		})
 		.on('mousedown touchstart',function(e){
 			if(resizeable){
@@ -68,6 +79,7 @@ $(function(){
 				dragging = true;
 				startX = e.pageX;
 				startY = e.pageY;
+				startWidth = $(this).width();
 			}
 		})
 		.on('mousemove touchmove',function(e){
@@ -76,7 +88,7 @@ $(function(){
 				var moveY = e.pageY - startY;
 				// resize insertedImg
 				$(this).css({
-					'width' : (100 + moveX)+'px',
+					'width' : (startWidth + moveX)+'px',
 				});
 			}
 		})

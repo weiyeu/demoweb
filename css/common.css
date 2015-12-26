@@ -77,3 +77,10 @@ a.cancel-decoration:link{
 .hidden{
 	display: none;
 }
+/*position*/
+.pull_left{
+	float: left;
+}
+.pull-right{
+	float: right;
+}

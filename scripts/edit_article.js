@@ -1,3 +1,4 @@
+/* document ready */
 $(function(){
 	var localImgSrc;
 	var linkImgsrc;
@@ -46,7 +47,42 @@ $(function(){
 		var insertedImg = $('<img/>').css({
 			'width' : '100px',
 		});
-		insertedImg.attr('src',localImgSrc);
+		insertedImg.attr({
+			'src' : localImgSrc,
+			'class' : 'inserted',
+		});
+		// add event handler to insertedImg
+		var resizeable = false;
+		var dragging = false;
+		var startX = 0;
+		var startY = 0;
+		insertedImg
+		// click to toggle resize function
+		.on('click',function(){
+			resizeable = !resizeable;
+			alert(resizeable);
+		})
+		.on('mousedown touchstart',function(e){
+			if(resizeable){
+				e.preventDefault();
+				dragging = true;
+				startX = e.pageX;
+				startY = e.pageY;
+			}
+		})
+		.on('mousemove touchmove',function(e){
+			if(dragging){
+				var moveX = e.pageX - startX;
+				var moveY = e.pageY - startY;
+				// resize insertedImg
+				$(this).css({
+					'width' : (100 + moveX)+'px',
+				});
+			}
+		})
+		.on('mouseup touchend',function(e){
+			dragging = false;
+		});
 		// get editableContent
 		var editableContent = $('#editableContent');
 		// insert into editableContent

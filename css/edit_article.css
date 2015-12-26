@@ -20,17 +20,13 @@ div.editable{
 	background: lightgray;
 	border-color: gray;
 }
-/*dummy element for vertical align*/
-/*.drop-area:before{
-	content:"";
-	height: 100%;
-	display: inline-block;
-	vertical-align: middle;
-}*/
 .drop-area p{
 	display: table-cell;
 	font-size: 16px;
 	font-weight: bold;
 	text-align: center;
 	vertical-align: middle;
+}
+img.inserted:hover{
+	cursor: pointer;
 }

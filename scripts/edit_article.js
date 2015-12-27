@@ -2,6 +2,7 @@
 $(function(){
 	var localImgSrc;
 	var linkImgsrc;
+	var uniqueIdNum = 0;
 	// input file changed
 	$('input#uploadImg').change(function(){
 		var fileHandle = this.files[0];
@@ -38,11 +39,27 @@ $(function(){
 		reader.readAsDataURL(fileHandle);
 	});
 	// click drop-area
-	$('.drop-area').click(function(){
+	$('.drop-area')
+	.click(function(){
 		$('input#uploadImg')[0].click();
+	});
+	// drop img on editableContent
+	$('#editableContent').on('drop',function(e){
+		var id = e.originalEvent.dataTransfer.getData('dragElementID');
+		var insertedImg = $('#'+id);
+		insertedImg
+		.on('dragstart',function(e){
+			var id = $(this).attr('id');
+			e.originalEvent.dataTransfer.setData('dragElementID',$(this).attr('id'));
+		})
+		.on('click',function(){
+			alert('clicked');
+		});
 	});
 	// click insert img confirm
 	$('#uploadImgConfirm').click(function(){
+		// countup id
+		uniqueIdNum++;
 		// create insertedImg
 		var insertedImg = $('<img/>').css({
 			'width' : '100px',
@@ -50,6 +67,7 @@ $(function(){
 		insertedImg.attr({
 			'src' : localImgSrc,
 			'class' : 'inserted',
+			'id' : 'id'+uniqueIdNum,
 		});
 		// add event handler to insertedImg
 		var resizeable = false;
@@ -94,6 +112,10 @@ $(function(){
 		})
 		.on('mouseup touchend',function(e){
 			dragging = false;
+		})
+		.on('dragstart',function(e){
+			var id = $(this).attr('id');
+			e.originalEvent.dataTransfer.setData('dragElementID',$(this).attr('id'));
 		});
 		// get editableContent
 		var editableContent = $('#editableContent');

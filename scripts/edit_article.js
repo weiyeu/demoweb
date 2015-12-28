@@ -43,6 +43,9 @@
 
 /* document ready */
 $(function(){
+	/* turn off firefox default image resize function*/
+	document.execCommand("enableObjectResizing", false, false);
+	
 	var imgSrcObj = {localImgSrc : null};
 	var linkImgsrc;
 	var uniqueIdNum = 0;
@@ -66,17 +69,77 @@ $(function(){
 	});
 	// drop img on editableContent
 	$('#editableContent')
-	.on('drop',function(e){
-		var id = e.originalEvent.dataTransfer.getData('text');
-		var insertedImg = $('#'+id);
-		insertedImg
-		.on('dragstart',function(e){
-			var id = $(this).attr('id');
-			e.originalEvent.dataTransfer.setData('text',$(this).attr('id'));
-		});
-		var range = document.caretRangeFromPoint(e.originalEvent.clientX, e.originalEvent.clientY);
-		range.insertNode(insertedImg[0]);
-		e.preventDefault()
+	.on('click',function(e){
+		var target = e.target;
+		jTarget = $(target);
+		if(target.tagName == 'IMG' && target.className == 'inserted'){
+			// add event handler to insertedImg
+			var resizeable = jTarget.data('resizeable');
+			// click to toggle resize function
+			if(!resizeable){
+				var dragging = false;
+				var startX = 0;
+				var startY = 0;
+				var startWidth = 0;
+				jTarget
+				.on('mousedown touchstart',function(e){
+					e.preventDefault();
+					dragging = true;
+					startX = e.pageX;
+					startY = e.pageY;
+					startWidth = $(this).width();
+				})
+				.css({
+					'border' : '3px dashed lightgray',
+					'cursor' : 'nw-resize',
+				});
+				$(this)
+				.on('mousemove touchmove',function(e){
+					if(dragging){
+						var moveX = e.pageX - startX;
+						var moveY = e.pageY - startY;
+						// resize insertedImg
+						jTarget.css({
+							'width' : (startWidth + moveX)+'px',
+						});
+						// change cursor
+						$(this).css({
+							'cursor' : 'nw-resize',
+						})
+					}
+				})
+				.on('mouseup touchend',function(e){
+					dragging = false;
+					// clear cursor
+					$(this).css({
+						'cursor' : '',
+					});
+				});	
+			}
+			else{
+				jTarget
+				.unbind('mousedown mouseup mousemove')
+				.css({
+					'border' : '',
+					'cursor' : 'pointer',
+				});
+				$(this)
+				.unbind('mousemove mouseup');
+			}
+			// toggle resizeable
+			jTarget.data('resizeable',!resizeable);
+		}
+		else{
+			$('img.inserted').each(function(){
+				$(this)
+				.unbind('mousedown mouseup mousemove')
+				.data('resizeable',false)
+				.css({
+					'border' : '',
+				});
+			});
+			$(this).unbind('mousemove mouseup');
+		}
 	});
 	// click insert img confirm
 	$('#uploadImgConfirm').click(function(){
@@ -98,47 +161,43 @@ $(function(){
 		var startY = 0;
 		var startWidth = 0;
 		insertedImg
-		// click to toggle resize function
-		.on('click',function(e){
-			if(resizeable){
-				// clear resizeable border
-				$(this).css({
-					'border' : '',
-				});
-			}
-			else{
-				$(this).css({
-					'border' : '2px dashed lightgray',
-				});
-			}
-			resizeable = !resizeable;
-		})
-		.on('mousedown touchstart',function(e){
-			if(resizeable){
-				e.preventDefault();
-				dragging = true;
-				startX = e.pageX;
-				startY = e.pageY;
-				startWidth = $(this).width();
-			}
-		})
-		.on('mousemove touchmove',function(e){
-			if(dragging){
-				var moveX = e.pageX - startX;
-				var moveY = e.pageY - startY;
-				// resize insertedImg
-				$(this).css({
-					'width' : (startWidth + moveX)+'px',
-				});
-			}
-		})
-		.on('mouseup touchend',function(e){
-			dragging = false;
-		})
-		.on('dragstart',function(e){
-			var id = $(this).attr('id');
-			e.originalEvent.dataTransfer.setData('text',$(this).attr('id'));
-		});
+		// // click to toggle resize function
+		// .on('click',function(e){
+		// 	if(resizeable){
+		// 		// clear resizeable border
+		// 		$(this).css({
+		// 			'border' : '',
+		// 		});
+		// 	}
+		// 	else{
+		// 		$(this).css({
+		// 			'border' : '2px dashed lightgray',
+		// 		});
+		// 	}
+		// 	resizeable = !resizeable;
+		// })
+		// .on('mousedown touchstart',function(e){
+		// 	if(resizeable){
+		// 		e.preventDefault();
+		// 		dragging = true;
+		// 		startX = e.pageX;
+		// 		startY = e.pageY;
+		// 		startWidth = $(this).width();
+		// 	}
+		// })
+		// .on('mousemove touchmove',function(e){
+		// 	if(dragging){
+		// 		var moveX = e.pageX - startX;
+		// 		var moveY = e.pageY - startY;
+		// 		// resize insertedImg
+		// 		$(this).css({
+		// 			'width' : (startWidth + moveX)+'px',
+		// 		});
+		// 	}
+		// })
+		// .on('mouseup touchend',function(e){
+		// 	dragging = false;
+		// });
 		// get editableContent
 		var editableContent = $('#editableContent');
 		// insert into editableContent

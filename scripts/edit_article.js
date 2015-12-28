@@ -3,12 +3,15 @@
  * 
  * @param fileHandle
  *            An image file object that is gonna show on drop-area
+ * @param imgSrcObj
+ * 			  image src object that contain local image src link(for pointer purpose)
  */
-function showImgOnDropArea(fileHandle){
-	var reader = new FileReader();
-	reader.onload = function(e){
+ function showImgOnDropArea(fileHandle, imgSrcObj){
+ 	var reader = new FileReader();
+ 	reader.onload = function(e){
 		// get img src
 		localImgSrc = e.target.result;
+		imgSrcObj.localImgSrc = localImgSrc;
 		// create img element
 		var img = $('<img/>').css({
 			'width' : '95%',
@@ -40,13 +43,13 @@ function showImgOnDropArea(fileHandle){
 
 /* document ready */
 $(function(){
-	var localImgSrc;
+	var imgSrcObj = {localImgSrc : null};
 	var linkImgsrc;
 	var uniqueIdNum = 0;
 	// input file changed
 	$('input#uploadImg').change(function(){
 		var fileHandle = this.files[0];
-		showImgOnDropArea(fileHandle);
+		showImgOnDropArea(fileHandle,imgSrcObj);
 	});
 	// click drop-area
 	$('.drop-area')
@@ -59,7 +62,7 @@ $(function(){
 	.on('drop',function(e){
 		e.preventDefault();
 		var fileHandle = e.originalEvent.dataTransfer.files[0];
-		showImgOnDropArea(fileHandle);
+		showImgOnDropArea(fileHandle,imgSrcObj);
 	});
 	// drop img on editableContent
 	$('#editableContent')
@@ -84,7 +87,7 @@ $(function(){
 			'width' : '100px',
 		});
 		insertedImg.attr({
-			'src' : localImgSrc,
+			'src' : imgSrcObj.localImgSrc,
 			'class' : 'inserted',
 			'contenteditable' : 'false',
 			'id' : 'id'+uniqueIdNum,
@@ -140,7 +143,7 @@ $(function(){
 		// get editableContent
 		var editableContent = $('#editableContent');
 		// insert into editableContent
-		if(localImgSrc){
+		if(imgSrcObj.localImgSrc){
 			insertNodeOverSelection(insertedImg[0], editableContent[0]);
 		}
 		else if(linkImgsrc){

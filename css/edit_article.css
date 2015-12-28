@@ -27,6 +27,17 @@ div.editable{
 	text-align: center;
 	vertical-align: middle;
 }
-img.inserted:hover{
+
+img.inserted{
 	cursor: pointer;
+	animation-name:border-shining;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	/*animation-direction: alternate;*/
+}
+@keyframes border-shining{
+	0%{border-color: lightgray}
+	50%{border-color: gray}
+	100%{border-color: lightgray}
+
 }

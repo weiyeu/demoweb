@@ -73,6 +73,13 @@ $(function(){
 		var target = e.target;
 		jTarget = $(target);
 		if(target.tagName == 'IMG' && target.className == 'inserted'){
+			// select img
+			/*
+			var range = document.createRange();
+			range.selectNode(jTarget[0]);
+			window.getSelection().removeAllRanges();
+			window.getSelection().addRange(range);
+			*/
 			// add event handler to insertedImg
 			var resizeable = jTarget.data('resizeable');
 			// click to toggle resize function
@@ -136,6 +143,7 @@ $(function(){
 				.data('resizeable',false)
 				.css({
 					'border' : '',
+					'cursor' : '',
 				});
 			});
 			$(this).unbind('mousemove mouseup');

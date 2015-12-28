@@ -89,7 +89,6 @@ $(function(){
 		insertedImg.attr({
 			'src' : imgSrcObj.localImgSrc,
 			'class' : 'inserted',
-			'contenteditable' : 'false',
 			'id' : 'id'+uniqueIdNum,
 		});
 		// add event handler to insertedImg

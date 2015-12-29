@@ -83,3 +83,7 @@ a.cancel-decoration:link{
 .pull-right{
 	float: right;
 }
+/*effect*/
+.custom-fade{
+	display: none;
+}

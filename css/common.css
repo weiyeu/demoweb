@@ -1,3 +1,8 @@
+/*html*/
+html{
+	/*for footer to stay at bottom*/
+	height: 100%;
+}
 /*navbar*/
 .navbar{
 	font-family: NotoSansDemilight,"Microsoft JhengHe","微軟正黑體", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -11,11 +16,18 @@
 }
 /*body*/
 body{
+	/*for footer to stay at bottom*/
+	position: relative;
+	padding-bottom: 6em;
+	min-height: 100%;
 	font-family: NotoSansDemilight,"Microsoft JhengHe","微軟正黑體", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	background: rgba(155,145,128,0.22);
 }
 /*footer*/
 footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 	background-color: #555;
 	color: white;
 	padding: 15px;

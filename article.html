@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- bootstrap css -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<!-- font-awesom -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<!-- common css -->
 	<link rel="stylesheet" type="text/css" href="css/common.css">
 	<!-- custom css -->
@@ -30,7 +32,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>                        
 				</button>
-				<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-heart"></span> 一起來晚餐吧!</a>
+				<a class="navbar-brand" href="#"><i class="fa fa-heart"></i> 一起來晚餐吧!</a>
 			</div>
 			<div class="collapse navbar-collapse" id="homeNavbar">
 				<ul class="nav navbar-nav navbar-right">
@@ -44,6 +46,7 @@
 	</nav>
 	<!-- main container -->
 	<div class="container">
+		<!-- main article -->
 		<div class="row">
 			<div class="panel panel-info">
 				<!-- panel heading -->
@@ -67,41 +70,73 @@
 						<p>太爽了</p>
 					</div>
 				</div>
+				<div class="panel-footer" style="text-align:center">
+					<div class="btn-group">
+						<a class="btn btn-default no-jump" data-toggle="collapse" data-target="#reply-collapse" href="#"><i class="fa fa-comments"></i> 回覆</a>
+						<a class="btn btn-default" href="#"><i class="fa fa-heart"></i> 喜歡</a>
+						<a class="btn btn-default" href="#"><i class="fa fa-shopping-basket"></i> 收藏</a>
+						<a class="btn btn-default" href="#"><i class="fa fa-th-list"></i> 清單</a>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="" s="row">
-			<div class="panel panel-info">
+		<!-- reply -->
+		<div class="row collapse" id="reply-collapse">
+			<div class="panel panel-default">
 				<div class="panel-body">
-					<p>回應</p>
+					<p>我也要回覆</p>
 					<p class="underline-lightgray"></p>
-					<!-- comment -->
-					<div class="comment" >
+					<div class="comment">
 						<!-- author img -->
 						<div class="author">
-							<img src="flower.jpg"> 
+							<img src="Lighthouse.jpg"> 
 						</div>
 						<!-- content -->
 						<div class="content">
-							<p class="author-title">BWS 夠狂</p>
-							<p>真是為你感到開心阿小明</p>
-							<p>我的吃完晚餐後就沒下文了QQ</p>
-							<p class="time">2015/12/22 ,11:33PM</p>
-							<p class="underline-lightgray"></p>
+							<p class="author-title">煞氣a小明</p>
+							<textarea style="width:100%" rows="5" placeHolder="一起來討論吧..."></textarea>
 						</div>
+						<button class="btn btn-info pull-right" style="margin-top:15px">確定送出</button>
 					</div>
-					<!-- comment -->
-					<div class="comment" >
-						<!-- author img -->
-						<div class="author">
-							<img src="Penguins.jpg"> 
+				</div>
+			</div>
+		</div>
+		<!-- comments -->
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-info">
+					<div class="panel-body">
+						<p>回覆</p>
+						<p class="underline-lightgray"></p>
+						<!-- comment -->
+						<div class="comment" >
+							<!-- author img -->
+							<div class="author">
+								<img src="flower.jpg"> 
+							</div>
+							<!-- content -->
+							<div class="content">
+								<p class="author-title">BWS 夠狂</p>
+								<p>真是為你感到開心阿小明</p>
+								<p>我的吃完晚餐後就沒下文了QQ</p>
+								<p class="time">2015/12/22 ,11:33PM</p>
+								<p class="underline-lightgray"></p>
+							</div>
 						</div>
-						<!-- content -->
-						<div class="content">
-							<p class="author-title">電機狂人</p>
-							<p>下次可以去活大自助餐吃吃看!</p>
-							<p>我推薦:)</p>
-							<p class="time">2015/12/22 ,11:35PM</p>
-							<p class="underline-lightgray"></p>
+						<!-- comment -->
+						<div class="comment" >
+							<!-- author img -->
+							<div class="author">
+								<img src="Penguins.jpg"> 
+							</div>
+							<!-- content -->
+							<div class="content">
+								<p class="author-title">電機狂人</p>
+								<p>下次可以去活大自助餐吃吃看!</p>
+								<p>我推薦:)</p>
+								<p class="time">2015/12/22 ,11:35PM</p>
+								<p class="underline-lightgray"></p>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -14,7 +14,6 @@
 body{
 	font-family: NotoSansDemilight,"Microsoft JhengHe","微軟正黑體", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	background: rgba(155,145,128,0.22);
-	word-break:break-all;
 }
 /*footer*/
 footer {

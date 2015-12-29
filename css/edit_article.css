@@ -30,6 +30,7 @@ div.editable{
 
 img.inserted{
 	cursor: pointer;
+	max-width: 100%;
 	animation-name:border-shining;
 	animation-duration: 2s;
 	animation-iteration-count: infinite;

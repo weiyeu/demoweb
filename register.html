@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Profile</title>
+	<title>Register</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- bootstrap css -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<!-- font-awesom -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<!-- Jcrop css -->
 	<link rel="stylesheet" href="css/jquery.Jcrop.css" type="text/css" />
+	<!-- font-awesom -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<!-- common css -->
 	<link rel="stylesheet" type="text/css" href="css/common.css">
-	<!-- custom css -->
+	<!-- profile css -->
 	<link rel="stylesheet" type="text/css" href="css/profile.css">
+	<!-- custom css -->
+	<link rel="stylesheet" type="text/css" href="css/register.css">
 
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -23,8 +25,10 @@
 	<script src="scripts/jquery.Jcrop.js"></script>
 	<!-- common javascript -->
 	<script type="text/javascript" src="scripts/common.js"></script>
-	<!-- custom javascript -->
+	<!-- profile javascript -->
 	<script type="text/javascript" src="scripts/profile.js"></script>
+	<!-- custom javascript -->
+	<script type="text/javascript" src="scripts/register.js"></script>
 </head>
 <body>
 	<!-- navigation bar -->
@@ -48,51 +52,15 @@
 			</div>
 		</div>
 	</nav>
-	<!-- main container -->
 	<div class="container">
+		<div class="jumbotron" >
+			<h1 class="text-center text-bold">申請帳號 <i class="fa fa-heart"></i></h1>
+		</div>
 		<div class="row">
-			<!-- left list -->
-			<div class="col-sm-4">
-				<div class="inner">
-					<!-- basic information -->
-					<ul class="list-group">
-						<h4 class="underline">帳號管理</h4>
-						<li class="list-group-item">
-							<a href="profile.html">基本資料<span class="glyphicon glyphicon-chevron-right" style="float:right"></span></a>
-						</li>
-						<li class="list-group-item">
-							<a href="profile_password.html">修改密碼<span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
-							</a>
-						</li>
-						<li class="list-group-item">
-							<a href="profile_subcribe.html">訂閱通知<span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
-							</a>
-						</li>
-						<li class="list-group-item">
-							<a href="profile_surprise.html">驚喜一下<span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
-							</a>
-						</li>
-					</ul>
-					<!-- custom data -->
-					<ul class="list-group">
-						<h4 class="underline">我的私藏</h4>
-						<li class="list-group-item">
-							<a href="#">item0<span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
-							</a>
-						</li>
-						<li class="list-group-item">
-							<a href="#">item1<span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-
-			<!-- main content -->
-			<div class="col-sm-8">
+			<div class="col-sm-offset-1 col-sm-10">
 				<div class="panel panel-default">
 					<div class="panel-body inner">
-						<h4 class="panel-heading col-sm-12" style="background:white">基本資料</h4>
+						<h4 class="panel-heading" style="background:white">基本資料</h4>
 						<form class="form-horizontal">
 							<!-- profileImg  -->
 							<div class="form-group">
@@ -152,9 +120,23 @@
 									<input type="email" class="form-control" id="email" placeholder="Enter email">
 								</div>
 							</div>
+							<!-- password -->
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="password">*密碼:</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="password" placeholder="秘密">
+								</div>
+							</div>
+							<!-- confirm password -->
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="confirmPassword">*確認密碼:</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="confirmPassword" placeholder="確認秘密">
+								</div>
+							</div>
 							<!-- sex -->
 							<div class="form-group">
-								<label class="control-label col-sm-2" for="sex">性別:</label>
+								<label class="control-label col-sm-2" for="sex">*性別:</label>
 								<div class="col-sm-10">
 									<select class="form-control" id="sex">
 										<option disabled selected>null</option>
@@ -165,7 +147,7 @@
 							</div>
 							<!-- birthday -->
 							<div class="form-group">
-								<label class="control-label col-sm-2" for="sex">生日:</label>
+								<label class="control-label col-sm-2" for="sex">*生日:</label>
 								<!-- year -->
 								<div class="col-sm-4">
 									<select class="form-control" id="year">
@@ -212,9 +194,10 @@
 			</div>
 		</div>
 	</div>
-	<!-- footer -->
-	<footer class="container-fluid text-center">
-		<p>&copy 2015 Dating</p>
-	</footer>
+</div>
+<!-- footer -->
+<footer class="container-fluid text-center">
+	<p>&copy 2015 Dating</p>
+</footer>
 </body>
 </html>

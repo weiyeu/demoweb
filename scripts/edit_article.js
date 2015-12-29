@@ -54,24 +54,29 @@ $(function(){
 		var fileHandle = this.files[0];
 		showImgOnDropArea(fileHandle,imgSrcObj);
 	});
-	// click drop-area
+	// drop-area event handler
 	$('.drop-area')
 	.on('click', function(){
 		$('input#uploadImg')[0].click();
 	})
 	.on('dragover',function(e){
+		// prevent openning image as a link
 		e.preventDefault();
 	})
 	.on('drop',function(e){
+		// prevent openning image as a link
 		e.preventDefault();
 		var fileHandle = e.originalEvent.dataTransfer.files[0];
 		showImgOnDropArea(fileHandle,imgSrcObj);
 	});
-	// drop img on editableContent
+	// click image in contenteditable div
 	$('#editableContent')
 	.on('click',function(e){
+		// get clicked target
 		var target = e.target;
+		// wrap as jquery object
 		jTarget = $(target);
+		// make sure click on img.inserted
 		if(target.tagName == 'IMG' && target.className == 'inserted'){
 			// select img
 			/*
@@ -80,9 +85,9 @@ $(function(){
 			window.getSelection().removeAllRanges();
 			window.getSelection().addRange(range);
 			*/
-			// add event handler to insertedImg
+			// get resizeable state flag
 			var resizeable = jTarget.data('resizeable');
-			// click to toggle resize function
+			// bind events handler to img.inserted if it is not in resizeable state
 			if(!resizeable){
 				var dragging = false;
 				var startX = 0;
@@ -123,6 +128,7 @@ $(function(){
 					});
 				});	
 			}
+			// unbind event handlers and reset img.inserted if it is in resizable state
 			else{
 				jTarget
 				.unbind('mousedown mouseup mousemove')
@@ -136,6 +142,7 @@ $(function(){
 			// toggle resizeable
 			jTarget.data('resizeable',!resizeable);
 		}
+		// reset and unbind event handlers if img.inserted isn't clicked
 		else{
 			$('img.inserted').each(function(){
 				$(this)
@@ -148,7 +155,9 @@ $(function(){
 			});
 			$(this).unbind('mousemove mouseup');
 		}
-	});
+	}); // end of $('editableContent').on('click',function{})
+
+	/* modal */
 	// click insert img confirm
 	$('#uploadImgConfirm').click(function(){
 		// countup id
@@ -162,50 +171,6 @@ $(function(){
 			'class' : 'inserted',
 			'id' : 'id'+uniqueIdNum,
 		});
-		// add event handler to insertedImg
-		var resizeable = false;
-		var dragging = false;
-		var startX = 0;
-		var startY = 0;
-		var startWidth = 0;
-		insertedImg
-		// // click to toggle resize function
-		// .on('click',function(e){
-		// 	if(resizeable){
-		// 		// clear resizeable border
-		// 		$(this).css({
-		// 			'border' : '',
-		// 		});
-		// 	}
-		// 	else{
-		// 		$(this).css({
-		// 			'border' : '2px dashed lightgray',
-		// 		});
-		// 	}
-		// 	resizeable = !resizeable;
-		// })
-		// .on('mousedown touchstart',function(e){
-		// 	if(resizeable){
-		// 		e.preventDefault();
-		// 		dragging = true;
-		// 		startX = e.pageX;
-		// 		startY = e.pageY;
-		// 		startWidth = $(this).width();
-		// 	}
-		// })
-		// .on('mousemove touchmove',function(e){
-		// 	if(dragging){
-		// 		var moveX = e.pageX - startX;
-		// 		var moveY = e.pageY - startY;
-		// 		// resize insertedImg
-		// 		$(this).css({
-		// 			'width' : (startWidth + moveX)+'px',
-		// 		});
-		// 	}
-		// })
-		// .on('mouseup touchend',function(e){
-		// 	dragging = false;
-		// });
 		// get editableContent
 		var editableContent = $('#editableContent');
 		// insert into editableContent

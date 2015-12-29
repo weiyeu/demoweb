@@ -6,9 +6,8 @@
 	font-weight: bold;
 	color: #000000;
 }
-.glyphicon-heart{
+.fa-heart{
 	color: red;
-	top: 4px;
 }
 /*body*/
 body{

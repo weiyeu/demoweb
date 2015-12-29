@@ -73,4 +73,15 @@
 			$(this).append('<option>'+i+'</option>');
 		}
 	});
+	/*fade-toggle effect*/
+	// configuration variable
+	var toggleTimeDuration = 1000;
+	// event handler
+	$("[data-toggle='fade']").each(function(){
+		$(this).click(function(){
+			var targetId = $(this).attr('data-target');
+			var target = $(targetId);
+			target.fadeToggle(toggleTimeDuration);
+		});
+	});
  });

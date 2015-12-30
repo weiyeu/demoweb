@@ -50,7 +50,7 @@
 		// append year to select list
 		for(var i = 0; i < 90; i++){
 			var year = currentYear - i;
-			$(this).append('<option>'+year+'</option>');
+			$(this).append('<option value=\'' + year + '\'>'+year+'</option>');
 		}
 	});
  	/*set month select list*/
@@ -59,9 +59,12 @@
 		var monthArr = ['一','二','三','四','五','六','七','八','九','十','十一','十二'];
 		// get this
 		var element = $(this);
+		// month num
+		var month = 1;
 		// append month to select list
 		monthArr.forEach(function(entry){
-			element.append('<option>'+entry+'</option>');
+			element.append('<option value=\'' + month + '\'>'+entry+'</option>');
+			month++;
 		});
 	});
  	/*set date select list*/
@@ -70,18 +73,18 @@
 		var numOfDates = 31;
 		// append date to select list
 		for(var i = 1; i <= numOfDates ; i++){
-			$(this).append('<option>'+i+'</option>');
+			$(this).append('<option value=\'' + i + '\'>'+i+'</option>');
 		}
 	});
-	/*fade-toggle effect*/
+	/*slide-toggle effect*/
 	// configuration variable
-	var toggleTimeDuration = 1000;
+	var toggleTimeDuration = 500;
 	// event handler
-	$("[data-toggle='fade']").each(function(){
+	$("[data-toggle='slide']").each(function(){
 		$(this).click(function(){
 			var targetId = $(this).attr('data-target');
 			var target = $(targetId);
-			target.fadeToggle(toggleTimeDuration);
+			target.slideToggle(toggleTimeDuration);
 		});
 	});
  });

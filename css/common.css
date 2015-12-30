@@ -119,3 +119,11 @@ a.cancel-decoration:link{
 	color: green;
 	background: rgba(165, 236, 157, 0.29);
 }
+/*c-list-group-item*/
+.c-list-group-item{
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+}

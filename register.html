@@ -103,45 +103,52 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="nickName">*暱稱:</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="nickName" placeholder="請填寫暱稱">
+									<input type="text" class="form-control" id="nickName" placeholder="請填寫暱稱" label="暱稱" maxlength="70" required>
+									<div class="c-alert slide"></div>
 								</div>
 							</div>
+							
 							<!-- real name -->
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="realName">*真實姓名:</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="realName" placeholder="請填寫真實姓名">
+									<input type="text" class="form-control" id="realName" placeholder="請填寫真實姓名" maxlength="70" required>
 								</div>
 							</div>
 							<!-- Email -->
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="email">*Email:</label>
 								<div class="col-sm-10">
-									<input type="email" class="form-control" id="email" placeholder="Enter email">
+									<input type="email" class="form-control" id="email" placeholder="Enter email" maxlength="255" required>
+									<div class="c-alert slide"></div>
 								</div>
 							</div>
 							<!-- password -->
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="password">*密碼:</label>
 								<div class="col-sm-10">
-									<input type="password" class="form-control" id="password" placeholder="秘密">
+									<input type="password" class="form-control" id="password" placeholder="密碼最少四個字" minlength="4" required>
 								</div>
 							</div>
 							<!-- confirm password -->
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="confirmPassword">*確認密碼:</label>
 								<div class="col-sm-10">
-									<input type="password" class="form-control" id="confirmPassword" placeholder="確認秘密">
+									<input type="password" class="form-control" id="confirmPassword" placeholder="確認密碼"
+									minlength="4" required>
+									<div class="c-alert slide">
+										<i class="fa fa-exclamation-triangle"></i>
+									</div>
 								</div>
 							</div>
 							<!-- sex -->
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="sex">*性別:</label>
 								<div class="col-sm-10">
-									<select class="form-control" id="sex">
-										<option disabled selected>null</option>
-										<option>男</option>
-										<option>女</option>
+									<select class="form-control" id="sex" required>
+										<option disabled selected value="">null</option>
+										<option value="male">男</option>
+										<option value="female">女</option>
 									</select>
 								</div>
 							</div>
@@ -150,20 +157,20 @@
 								<label class="control-label col-sm-2" for="sex">*生日:</label>
 								<!-- year -->
 								<div class="col-sm-4">
-									<select class="form-control" id="year">
-										<option disabled selected>年</option>
+									<select class="form-control" id="year" required>
+										<option disabled selected value="">年</option>
 									</select>
 								</div>
 								<!-- month -->
 								<div class="col-sm-3">
-									<select class="form-control" id="month">
-										<option disabled selected>月</option>
+									<select class="form-control" id="month" required>
+										<option disabled selected value="">月</option>
 									</select>
 								</div>
 								<!-- date -->
 								<div class="col-sm-3">
-									<select class="form-control" id="date">
-										<option disabled selected>日</option>
+									<select class="form-control" id="date" required>
+										<option disabled selected value="">日</option>
 									</select>
 								</div>
 							</div>
@@ -185,7 +192,7 @@
 							<div class="form-group">
 								<div class="col-sm-2"></div>
 								<div class="col-sm-10">
-									<input type="submit" class="btn btn-default" value="儲存資料">
+									<button type="submit" class="btn btn-primary" id="submit" >確定送出</button>
 								</div>
 							</div>
 						</form>

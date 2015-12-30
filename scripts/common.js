@@ -1,4 +1,14 @@
 /**
+ * validate email format
+ * 
+ * @param String email
+
+ */
+function validateEmail(email) {
+	var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	return re.test(email);
+}
+/**
  * Insert HTML element into the selected position
  * 
  * @param node
@@ -76,7 +86,7 @@
 			$(this).append('<option value=\'' + i + '\'>'+i+'</option>');
 		}
 	});
-	/*slide-toggle effect*/
+ 	/*slide-toggle effect*/
 	// configuration variable
 	var toggleTimeDuration = 500;
 	// event handler
@@ -87,4 +97,4 @@
 			target.slideToggle(toggleTimeDuration);
 		});
 	});
- });
+});

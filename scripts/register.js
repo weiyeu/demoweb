@@ -1,5 +1,5 @@
 /**
- * check the input name is empty or used
+ * check the input name is empty or used or if email, check email format
  * 
  * @param node
  *            input node which should be checked
@@ -10,25 +10,36 @@
  * @param String sucessIcon
  *			  success icon
  */
- function checkNameEmptyOrUsed(node, nodeName, warnIcon, successIcon){
+ function validateInput(node, nodeName, warnIcon, successIcon){
 	// node id
 	var id = '#'+node.attr('id');
 	// alert element
 	var alert = $(id + ' + .c-alert');
 	// emptyMessage
 	var emptyMessage = '<strong>' + warnIcon + ' ' + nodeName +'不可以空白唷' + '</strong>';
+	// notValidMessage
+	var notValidMessage = '<strong>' + warnIcon + ' ' + nodeName +'格式不太對唷' + '</strong>';
 	// warnMessage
 	var warnMessage = '<strong>' + warnIcon + ' 這個' + nodeName + '已被使用' + '</strong>';
 	// successMessage
 	var successMessage = '<strong>' + successIcon + ' 這個' + nodeName + '讚喔' + '</strong>'; 
 	// reset alert classes
 	alert.removeClass('c-alert-danger c-alert-success');
+	// email validation
+	var emailNotValid = (nodeName == 'Email') && !validateEmail(node.val());
 	// if empty
 	if(node.val().length < 1){
 		// insert warnMessage into alert element
 		alert.html(emptyMessage);
 		// set alert type
 		alert.addClass('c-alert-danger');
+	}
+	// check Email format
+	else if(emailNotValid){
+		// insert warnMessage into alert element
+		alert.html(notValidMessage);
+		// set alert type
+		alert.addClass('c-alert-danger');		
 	}
 	// if nickName used
 	else if(false){
@@ -54,12 +65,12 @@ $(function(){
 	/*nickName blur*/
 	$('#nickName').blur(function(){
 		// check nickName
-		checkNameEmptyOrUsed($(this),'暱稱',warnIcon,successIcon);
+		validateInput($(this),'暱稱',warnIcon,successIcon);
 	});
 	/*Email blur*/
 	$('#email').blur(function(){
 		// check Eamil
-		checkNameEmptyOrUsed($(this),'Email',warnIcon,successIcon);
+		validateInput($(this),'Email',warnIcon,successIcon);
 	});
 	/*click submit*/
 	$('#submit').click(function(){

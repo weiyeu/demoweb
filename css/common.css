@@ -94,7 +94,21 @@ a.cancel-decoration:link{
 .pull-right{
 	float: right;
 }
-/*effect*/
-.custom-fade{
+/*custom effect*/
+.slide{
 	display: none;
+}
+/*c-alert*/
+.c-alert{
+	padding: 8px;
+	margin-bottom: 1em;
+	border-radius: 4px;
+}
+.c-alert-danger{
+	color: red;
+	background: rgba(241, 195, 195, 0.46);
+}
+.c-alert-success{
+	color: green;
+	background: rgba(165, 236, 157, 0.29);
 }

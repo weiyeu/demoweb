@@ -38,6 +38,10 @@ footer {
 	/*background: #E0E0E0;*/
 	border : 10px solid transparent;
 }
+/*border*/
+.no-border{
+	border: 0;
+}
 /*text*/
 .text-bold{
 	font-weight: bold;

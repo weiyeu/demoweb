@@ -94,6 +94,9 @@ a.cancel-decoration:link{
 .pull-right{
 	float: right;
 }
+.put-center{
+	text-align: center;
+}
 /*custom effect*/
 .slide{
 	display: none;

@@ -45,94 +45,83 @@
 		</div>
 	</nav>
 	<!-- main container -->
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
-			<div class="jumbotron col-sm-12" >
-				<h1 class="text-center text-bold">晚餐對象 <i class="fa fa-heart"></i></h1>
+			<div class="jumbotron col-md-12" >
+				<h1 class="text-center text-bold">晚餐內容 <i class="fa fa-heart"></i></h1>
 			</div>
 		</div>
 		<!-- matched person -->
-		<div class="row">
-			<div class="col-sm-2">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<!-- basic information -->
-						<ul class="list-group">
-							<h4 class="underline">晚餐資訊</h4>
-							<a class="c-list-group-item" href="profile.html">
-								晚餐對象<span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
-							</a>
-							<a class="c-list-group-item">
-								我的條件<span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
-							</a>
-							<a class="c-list-group-item">
-								晚餐進展<span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
-							</a>
-							<a class="c-list-group-item">
-								驚喜一下<span class="glyphicon glyphicon-chevron-right" style="float:right"></span>
-							</a>
-						</ul>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="list-header">
+					<div class="list-brand">晚餐資訊</div>
+					<button class="btn btn-default list-btn" data-toggle="slide" data-target="#pill"><i class="fa fa-th-list"></i></button>
+				</div>
+				<ul class="nav nav-pills nav-justified list-collapse" id="pill">
+					<li class="active"><a href="#">晚餐對象</a></li>
+					<li><a href="#">我的選項</a></li>
+					<li><a href="#">配對細節</a></li>
+					<li><a href="#">驚喜一下</a></li>
+				</ul>
+			</div>
+			<div class="panel-body inner">
+				<!-- profile image and title -->
+				<div class="col-md-12 put-center">
+					<img class="profileImg" src="Lighthouse.jpg">
+					<h3 class="" style="color:gray">煞氣a小明</h3>
+					<div class="underline-lightgray" style="margin-bottom:2em"></div>
+				</div>
+				<!-- email -->
+				<div class="col-md-4">
+					<div class="panel panel-default no-border">
+						<div class="panel-body inner put-center">
+							<div class="text-super-large">
+								信
+								<i class="fa fa-envelope-o"></i>
+								箱
+							</div>
+							<p>Hello@hellomail.com</p>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="panel panel-default col-sm-8">
-				<div class="panel-body inner">
-					<!-- profile image and title -->
-					<div class="col-sm-12 put-center">
-						<img class="profileImg" src="Lighthouse.jpg">
-						<h3 class="" style="color:gray">煞氣a小明</h3>
-						<div class="underline-lightgray" style="margin-bottom:2em"></div>
-					</div>
-					<!-- email -->
-					<div class="col-sm-4">
-						<div class="panel panel-default no-border">
-							<div class="panel-body inner put-center">
-								<div class="text-super-large">
-									信
-									<i class="fa fa-envelope-o"></i>
-									箱
-								</div>
-								<p>Hello@hellomail.com</p>
+				<!-- hobby -->
+				<div class="col-md-4">
+					<div class="panel panel-default no-border">
+						<div class="panel-body inner put-center">
+							<div class="text-super-large">
+								興
+								<i class="fa fa-paper-plane-o"></i>
+								趣
 							</div>
+							<p>看動漫</p>
 						</div>
 					</div>
-					<!-- hobby -->
-					<div class="col-sm-4">
-						<div class="panel panel-default no-border">
-							<div class="panel-body inner put-center">
-								<div class="text-super-large">
-									興
-									<i class="fa fa-paper-plane-o"></i>
-									趣
-								</div>
-								<p>看動漫</p>
+				</div>
+				<!-- sex -->
+				<div class="col-md-4">
+					<div class="panel panel-default no-border">
+						<div class="panel-body inner put-center">
+							<div class="text-super-large">
+								性
+								<i class="fa fa-venus-mars"></i>
+								別
 							</div>
-						</div>
-					</div>
-					<!-- sex -->
-					<div class="col-sm-4">
-						<div class="panel panel-default no-border">
-							<div class="panel-body inner put-center">
-								<div class="text-super-large">
-									性
-									<i class="fa fa-venus-mars"></i>
-									別
-								</div>
-								<p>男</p>
-							</div>
+							<p>男</p>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- user selection -->
-		<div class="row">
-
 		</div>
 	</div>
-	<!-- footer -->
-	<footer class="container-fluid text-center">
-		<p>&copy 2015 Dating</p>
-	</footer>
+	<!-- user selection -->
+	<div class="row">
+
+	</div>
+</div>
+<!-- footer -->
+<footer class="container-fluid text-center">
+	<p>&copy 2015 Dating</p>
+</footer>
 </body>
 </html>

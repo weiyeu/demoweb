@@ -73,6 +73,7 @@ footer {
 		font-size: 36px;
 	}
 }
+
 /*line*/
 .underline{
 	padding-bottom: 10px;
@@ -115,6 +116,25 @@ a.cancel-decoration:link{
 /*custom effect*/
 .slide{
 	display: none;
+}
+.active-shine{
+	animation-name:active-shine;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+}
+@keyframes active-shine{
+	0%{
+		background: rgba(51, 122, 183, 0.48);
+		color: gold
+	}
+	50%{
+		background: #337ab7;
+		color: goldenrod;
+	}
+	100%{
+		background: rgba(51, 122, 183, 0.48);
+		color: gold
+	}
 }
 /*c-alert*/
 .c-alert{
